@@ -156,15 +156,17 @@
 /* comments */
 .comments {
   text-align: center;
-}
-
-#comments {
-  max-width: 400px;
   margin: 0 auto;
 }
 
+#comments {
+  max-width: 500px;
+  margin: 0 auto;
+
+}
+
 .comment-show {
-  text-align: left;
-  max-width: 400px;
+  text-align: center;
+  max-width: 500px;
   margin: 0 auto;
 }
