@@ -1,13 +1,13 @@
 <div class="container">
 
 <div class="entries">
-  <h1 style="text-align:center">Blog Entries</h1>
+  <h2 style="text-align:center">Blog Entries</h2>
     <div class="search">
       <%= form_tag(entries_path, :method => "get", id: "search-form") do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search Blog Entries",
        class: "form-control" %>
-      <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
-      <%= link_to "New Blog Entry", new_entry_path, class: "btn btn-default" %>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-default btn-sm" %>
+      <%= link_to "New Blog Entry", new_entry_path, class: "btn btn-default btn-sm" %>
       <% end %>
       <br>
     </div>
