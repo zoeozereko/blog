@@ -30,6 +30,9 @@ gem "simple_form"
 gem "carrierwave"
 gem "mini_magick"
 gem 'will_paginate-bootstrap'
+gem 'cancancan', '~> 1.10'
+gem "delayed_job_active_record"
+gem "delayed_job_web"
 
 group :development, :test do
   gem 'byebug'
@@ -40,6 +43,5 @@ group :development, :test do
   gem 'faker'
   gem 'hirb'
   gem "letter_opener", :group => :development
-  gem "delayed_job_active_record"
-  gem "delayed_job_web"
+
 end

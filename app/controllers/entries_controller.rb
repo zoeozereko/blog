@@ -1,6 +1,8 @@
 class EntriesController < ApplicationController
-  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  #before_action :find_post, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index]
+  before_action :find_entry, only: [:edit, :update, :destroy]
+
 
   def index
     @entries = Entry.all.most_recent
@@ -16,7 +18,7 @@ class EntriesController < ApplicationController
   end
 
   def create
-    @entry = Entry.new(entry_params)
+    @entry = current_user.entries.new(entry_params)
     @entry.tags << tag_split
     if @entry.save
       redirect_to entries_path
@@ -26,12 +28,14 @@ class EntriesController < ApplicationController
   end
 
   def show
+    @entry = Entry.find(params[:id])
     @comment = Comment.new
     @tag = Tag.new
     @favorite = @entry.favorite_for(current_user) if user_signed_in?
   end
 
   def edit
+    @entry = current_user.entries.find(params[:id])
   end
 
   def update
@@ -44,6 +48,7 @@ class EntriesController < ApplicationController
   end
 
   def destroy
+    @entry = current_user.entries.find(params[:id])
     @entry.destroy
     redirect_to entries_path, notice: "Entry has been deleted."
   end
@@ -60,6 +65,12 @@ class EntriesController < ApplicationController
   end
 
   private
+
+  def find_entry
+    @entry = current_user.entries.find(params[:id])
+    redirect_to root_path, alert: "Access denied." unless can? :manage, @entry
+  end
+
   def find_post
     @entry = Entry.find(params[:id])
   end
