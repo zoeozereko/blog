@@ -1,0 +1,10 @@
+<div class="container">
+<p style="text-align:right">Favorited: <%= @entry.favorites.count %> </p><br>
+  <% if @favorite.present? && @favorite.persisted? %>
+    <%= link_to fa_icon("heart 3x"), entry_favorite_path(@entry, @favorite),
+    remote: true, method: :delete, class: "pull-right", style: "color: red" %>
+  <% else %>
+    <%= link_to fa_icon("heart-o 3x"), entry_favorites_path(@entry), remote: true,
+    method: :post, class: "pull-right", style: "color: red" %>
+  <% end %>
+</div>

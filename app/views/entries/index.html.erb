@@ -1,0 +1,28 @@
+<div class="container">
+
+<div class="entries">
+  <h1 style="text-align:center">Blog Entries</h1>
+    <div class="search">
+      <%= form_tag(entries_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Blog Entries",
+       class: "form-control" %>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+      <%= link_to "New Blog Entry", new_entry_path, class: "btn btn-default" %>
+      <% end %>
+      <br>
+    </div>
+
+<div class="boxes">
+  <div class="col-xs-12">
+    <% @entries.each do |e| %>
+    <div class="col-md-6 x">
+      <h4><%= link_to e.title.first(20), entry_path(e), id: "blog-links" %></h4>
+      <p><%= image_tag e.image.url(:medium), class: "entry-image" %></p>
+      <p><%= e.body.first(50) %>...</p>
+    </div>
+      <% end %>
+  </div>
+</div>
+</div>
+
+</div>

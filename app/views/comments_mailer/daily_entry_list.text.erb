@@ -1,0 +1,10 @@
+Hello <%= @user.name_display %>,
+
+Here's a list of all the comments on your blog entry for the day:
+
+  <% @comment.each do |comm| %>
+  <%=  comm.body %>
+  <% end %>
+Kind regards,
+
+the BLOG team.

@@ -1,0 +1,9 @@
+Hello <%= @user.name_display %>,
+
+You got a comment on your blog entry!
+Blog entry title: <%= link_to @entry.title, entry_url(@entry) %>
+Comment: <%= @comment.body %>
+
+Kind regards,
+
+the BLOG team.

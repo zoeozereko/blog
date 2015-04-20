@@ -1,0 +1,11 @@
+<div class="container">
+<div id="comments">
+  <h2>Comments</h2>
+    <%= simple_form_for [@entry, @comment], html: {class: "form-horizontal"},
+    remote: true do |f| %>
+    <%= f.input :body, placeholder: "Add your comment here." %>
+    <%= f.submit class: "btn btn-default" %>
+    <% end %>
+  <br>
+</div>
+</div>

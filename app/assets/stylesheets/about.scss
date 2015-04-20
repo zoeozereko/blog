@@ -1,0 +1,14 @@
+// Place all the styles related to the about controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.about {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 730px;
+  font-family: 'Lato', sans-serif;
+}
+
+.about p:hover {
+   border: 5px dashed #FF9EFF;
+}

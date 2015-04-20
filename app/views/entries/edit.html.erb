@@ -1,0 +1,15 @@
+<div class="container">
+
+<h1>Edit Post</h1>
+
+<div class="edit">
+  <%= simple_form_for @entry, html: {class: "form-horizontal"} do |f| %>
+  <%= f.input :title, class: "form-control" %>
+<br>
+  <%= f.input :body, class: "form-control" %>
+<br>
+  <%= f.submit class: "btn btn-default" %>
+  <% end %>
+</div>
+
+</div>

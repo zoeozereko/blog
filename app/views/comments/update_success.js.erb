@@ -1,0 +1,3 @@
+$("#edit-comment-modal").modal("hide");
+$("#<%= dom_id(@comment) %>").replaceWith("<%= j render partial: "comment",
+locals: {comment: @comment} %>" );

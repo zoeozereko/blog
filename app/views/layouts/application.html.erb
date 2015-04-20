@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <meta charset="UTF-8">
+  <%= stylesheet_link_tag    'application', media: 'all',
+    'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application',
+    'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <!-- head -->
+  <div class="header">
+    <div class="blog">
+      <h1><%= link_to "the Blog", root_path, class: "head-link" %> &boxbox;</h1>
+    </div>
+
+    <!-- dropdown -->
+    <div class="btn-group ">
+      <button type="button" class="btn btn-default dropdown-toggle btn-sm"
+      data-toggle="dropdown" aria-expanded="false">
+      &Congruent;<span></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><%= link_to "home", root_path %></li>
+        <li><%= link_to "about", about_path %></li>
+        <li><%= link_to "blog entries", entries_path %></li>
+        <li><%= link_to "new blog entry", new_entry_path %></li>
+      </ul>
+    </div>
+
+    <!-- login -->
+    <div class="login" style="text-align:right">
+      <% if user_signed_in? %>
+         welcome <%= current_user.name_display %> :&nbsp;
+        <%= link_to "log out", destroy_user_session_path, method: :delete,
+          class: "links" %> &nbsp; // &nbsp;
+        <%= link_to fa_icon("heart 1x"), favorites_path, style: "color:red"%>
+      <% else %>
+        <%= link_to "log in", new_user_session_path, class: "links"  %> &nbsp; // &nbsp;
+        <%= link_to "register", new_user_registration_path, class: "links" %>
+      <% end %>
+    </div>
+  </div>
+<br>
+<br>
+
+<div class="container">
+  <div class="alerts">
+    <%= flash[:notice] || flash[:alert] %>
+  </div>
+    <%= yield %>
+</div>
+<br>
+</body>
+
+</html>

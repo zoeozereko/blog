@@ -1,0 +1,10 @@
+<div class="container">
+<div class="fav">
+  <h1><strong>Favorited Blog Entries</strong> //</h1>
+  <ul>
+    <% @favorited_entries.each do |entry| %>
+    <li><h2><%= link_to entry.title, entry, id: "fav-links"%></h2></li>
+    <% end %>
+  </ul>
+</div>
+</div>

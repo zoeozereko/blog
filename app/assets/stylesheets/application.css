@@ -1,0 +1,170 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require font-awesome
+ *= require_tree .
+ *= require_self
+ */
+
+.container {
+   max-width: 1000px;
+   font-family: 'Lato', sans-serif;
+ }
+
+ .btn-default {
+   background-color: black;
+   color: white;
+ }
+
+ .btn-default:hover {
+    background-color: #FF9EFF;
+    color: black;
+ }
+
+ .alerts {
+   font-size: 20px;
+   text-align: left;
+   font-style: italic;
+ }
+
+
+/* head */
+.header {
+  background: black;
+  height: 130px;
+  width: 100%;
+}
+
+.header h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+}
+
+.head-link {
+  color: white;
+}
+
+.head-link:hover {
+  text-decoration: none;
+  color: #FF9EFF;
+}
+
+.blog {
+  color: white;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.btn-group {
+  margin-top: 5px;
+  padding-left: 20px;
+}
+
+.links {
+  color: white;
+}
+
+.links:hover {
+  color: #FF9EFF;
+}
+
+
+/* blog entries */
+#blog-links {
+  color: black;
+}
+
+#blog-links:hover {
+  color: #FF9EFF;
+}
+
+.search {
+  width: 400px;
+  margin: 0px auto;
+}
+
+.col-md-6 {
+  height: 350px;
+  width: 400px;
+  background: #FEFEFE;
+  margin: 15px;
+  padding: 10px;
+}
+
+.x {
+  text-align: center;
+  border: 1px solid black;
+}
+
+.x:hover {
+  border: 3px dashed black;
+}
+
+.new {
+  max-width: 500px;
+}
+
+.show {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.blog-entry {
+  text-align: center;
+}
+
+.edit {
+  max-width: 500px;
+}
+
+
+
+/* devise */
+.login {
+  padding-right: 20px;
+  color: white;
+  margin-top: -18px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+.log-in {
+  max-width: 400px;
+  font-size: 15px;
+  text-align: left;
+}
+
+.register {
+  max-width: 400px;
+  font-size: 15px;
+  text-align: left;
+}
+
+
+
+
+
+/* comments */
+.comments {
+  text-align: center;
+}
+
+#comments {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.comment-show {
+  text-align: left;
+  max-width: 400px;
+  margin: 0 auto;
+}
