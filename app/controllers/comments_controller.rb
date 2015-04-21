@@ -8,7 +8,8 @@ class CommentsController < ApplicationController
 
   def create
     @entry = Entry.find(params[:entry_id])
-    @comment = current_user.comments.new(comment_params)
+    @comment = Comment.new(comment_params)
+    @comment.user = current_user
     @comment.entry = @entry
 
     respond_to do |format|
@@ -43,7 +44,8 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comment = current_user.comments.find(params[:id])
+    @entry = Entry.find(params[:entry_id])
+    @comment = Comment.find(params[:id])
   end
 
   def destroy
