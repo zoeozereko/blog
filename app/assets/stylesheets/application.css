@@ -90,6 +90,7 @@
 .search {
   width: 400px;
   margin: 0px auto;
+  text-align: center;
 }
 
 .col-md-6 {
@@ -97,7 +98,7 @@
   width: 400px;
   background: #FEFEFE;
   margin: 15px;
-  padding: 10px;
+  padding: 15px;
 }
 
 .x {

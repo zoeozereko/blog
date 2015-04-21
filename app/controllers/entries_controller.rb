@@ -5,12 +5,20 @@ class EntriesController < ApplicationController
 
 
   def index
-    if params[:search]
-      @entries = Entry.search(params['search']).paginate(:page => 1, :per_page => 6)
-    else
-      @entries = Entry.all.most_recent.paginate(:page => params[:page], :per_page => 6)
-    end
+    @entries = Entry.all.most_recent.paginate(:page => params[:page], :per_page => 6)
   end
+  #  if params[:search]
+  #  @entries = Entry.search(params[:search]).order("created_at DESC")
+  #  else
+  #   @entries = Entry.all.order('created_at DESC')
+  #  end
+
+    # if params[:search]
+    #   @entries = Entry.search(params['search']).paginate(:page => 1, :per_page => 6)
+    # else
+      # @entries = Entry.all.most_recent.paginate(:page => params[:page], :per_page => 6)
+    # end
+
 
   def new
     @entry = Entry.new

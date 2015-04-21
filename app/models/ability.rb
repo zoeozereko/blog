@@ -16,7 +16,7 @@ class Ability
     end
 
     can :manage, Comment do |comment|
-      comment.entry.user == user
+      comment.user == user || comment.entry.user == user
     end
     # Define abilities for the passed in user here. For example:
     #
