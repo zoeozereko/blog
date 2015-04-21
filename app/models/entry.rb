@@ -23,8 +23,14 @@ class Entry < ActiveRecord::Base
     order("created_at DESC")
   end
 
-  def self.search(search)
-    where('title ILIKE ? OR body ILIKE ?', "%#{search}%", "%#{search}%")
+  def self.search(search_param)
+    entries=Entry.where('title ILIKE ? OR body ILIKE ?',"%#{search_param}%","%#{search_param}%")
+
+    if entries.nil?
+      entries = Entry.all.joins(:tags).where('name ILIKE ?', "%#{search_param}%")
+    else
+      entries << entries.joins(:tags).where('name ILIKE ?', "%#{search_param}%")
+    end
   end
 
   def favorite_for(user)

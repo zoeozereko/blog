@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_action :find_post, only: [:destroy]
   before_action :authenticate_user!
 
 
@@ -9,8 +8,9 @@ class CommentsController < ApplicationController
 
   def create
     @entry = Entry.find(params[:entry_id])
-    @comment = Comment.new(comment_params)
+    @comment = current_user.comments.new(comment_params)
     @comment.entry = @entry
+
     respond_to do |format|
       if @comment.save
         CommentsMailer.notify_entry_owner(@comment).deliver_later
@@ -42,8 +42,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = current_user.comments.find(params[:id])
+  end
+
   def destroy
     @entry = Entry.find(params[:entry_id])
+    @comment = Comment.find(params[:id])
+    head :unautherized and return unless can? :destroy, @comment
     @comment.destroy
     respond_to do |format|
       format.html {redirect_to entry_path(@entry), notice: "Entry deleted"}
@@ -51,11 +57,7 @@ class CommentsController < ApplicationController
     end
   end
 
-
   private
-  def find_post
-     @comment = Comment.find(params[:id])
-  end
 
   def comment_params
     params.require(:comment).permit(:body)

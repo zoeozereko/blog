@@ -2,11 +2,15 @@
   <hr>
   <div class="comment-show">
     <p><%= comment.body %></p>
+    <% if can? :destroy, comment %>
     <p><%= link_to "Delete", entry_comment_path(@entry, comment), remote: true,
       method: :delete, data: {confirm: "Are you sure you want to delete?"},
       class: "btn btn-default btn-xs" %>
+    <% end %>
+    <% if can? :edit, comment%>
       <%= link_to "Edit", edit_entry_comment_path(@entry, comment),
       remote: true, class: "btn btn-default btn-xs", data: {toggle: "modal",
       target: "#edit-comment-modal"} %></p>
+    <% end %>
   </div>
 </div>

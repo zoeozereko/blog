@@ -29,7 +29,7 @@ gem "font-awesome-rails"
 gem "simple_form"
 gem "carrierwave"
 gem "mini_magick"
-gem 'will_paginate-bootstrap'
+gem 'will_paginate'
 gem 'cancancan', '~> 1.10'
 gem "delayed_job_active_record"
 gem "delayed_job_web"
