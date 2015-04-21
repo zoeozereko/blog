@@ -9,9 +9,8 @@ class CommentsController < ApplicationController
   def create
     @entry = Entry.find(params[:entry_id])
     @comment = Comment.new(comment_params)
-    @comment.user = current_user
+    #@comment.user = current_user
     @comment.entry = @entry
-
     respond_to do |format|
       if @comment.save
         CommentsMailer.notify_entry_owner(@comment).deliver_later
